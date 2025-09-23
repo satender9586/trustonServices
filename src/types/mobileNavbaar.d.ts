@@ -1,4 +1,4 @@
-// Define props type
+
 export interface MobileMenuProps {
   isOpen: boolean;
   toggleMenu: () => void;

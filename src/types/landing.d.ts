@@ -7,7 +7,7 @@ export interface ServiceCardProps {
   itemDesc: string;
 }
 
-// Why chooseus page
+
 export interface WhyChooseUsItem {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
@@ -17,7 +17,6 @@ export interface WhyChooseUsItem {
 export interface WhyChooseUsCrauselProps {
     data: WhyChooseUsItem[];
 }
-
 
 
 export interface CompanyLovesItem {

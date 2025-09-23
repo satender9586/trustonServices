@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
+import { WorkLocations } from '@/constants/workLocations'
 
 const LocationSection = () => {
   return (
@@ -19,14 +20,7 @@ const LocationSection = () => {
 
     {/* City List */}
     <div className="flex flex-wrap justify-center gap-6">
-      {[
-        "Delhi",
-        "Noida",
-        "Gurugram",
-        "Faridabad",
-        "Ghaziabad",
-        "Greater Noida",
-      ].map((city, i) => (
+      {WorkLocations?.map((city, i) => (
         <span
           key={i}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full 
