@@ -1,12 +1,10 @@
-import { StaticImageData } from 'next/image';
-
+import { StaticImageData } from "next/image";
 
 export interface ServiceCardProps {
   itemUrl: StaticImageData;
   itemName: string;
   itemDesc: string;
 }
-
 
 export interface WhyChooseUsItem {
   icon: React.ComponentType<{ className?: string }>;
@@ -15,9 +13,8 @@ export interface WhyChooseUsItem {
 }
 
 export interface WhyChooseUsCrauselProps {
-    data: WhyChooseUsItem[];
+  data: WhyChooseUsItem[];
 }
-
 
 export interface CompanyLovesItem {
   imgs: StaticImageData;
@@ -32,23 +29,21 @@ export interface OwnerInfo {
   name: string;
   desc: string;
   extrDesc: string;
-  profile :StaticImageData
+  profile: StaticImageData;
 }
-
 
 export interface TeamMembersInfo {
   name: string;
   desc: string;
   experience: string;
-  profile :StaticImageData,
-  role:string
+  profile: StaticImageData;
+  role: string;
 }
 
 export interface FAQ {
-  title :string,
-  desc :string
+  title: string;
+  desc: string;
 }
-
 
 interface ServiceCategory {
   name: string;
@@ -56,7 +51,7 @@ interface ServiceCategory {
   itemname: string;
   itemUrl: StaticImageData;
   itemDesc: string;
-  trending ?: boolean
+  trending?: boolean;
 }
 
 export interface Service {
@@ -64,9 +59,8 @@ export interface Service {
   itemUrl: StaticImageData;
   itemDesc: string;
   path: string;
-  trending:boolean,
+  trending: boolean;
 }
-
 
 export interface ServicesCategoryCardProps {
   srv: {

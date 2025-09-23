@@ -1,13 +1,9 @@
 import React from "react";
-import { FaTools, FaCertificate, FaHeadset } from "react-icons/fa";
+import { Stats } from "@/constants/about";
 import EnqueryPopUp from "./Models/EnqueryPopUp";
 
 const AboutUs = () => {
-  const stats = [
-    { label: "7+ Years", sub: "Industry Experience", icon: <FaTools /> },
-    { label: "Certified", sub: "Expert Technicians", icon: <FaCertificate /> },
-    { label: "24/7", sub: "Customer Support", icon: <FaHeadset /> },
-  ];
+  
 
   return (
     <section className="bg-gradient-to-b from-[#EBF7FD] via-white to-[#FDEBF3] py-5 sm:py-8 overflow-hidden">
@@ -38,14 +34,14 @@ const AboutUs = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 mb-10">
-          {stats.map((item, i) => (
+          {Stats.map((item, i) => (
             <div
               key={i}
               className="bg-white p-5 sm:p-7 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border-t-4 border-[#AF0D5A]"
             >
               <div className="flex flex-col items-center">
                 <div className="text-[#AF0D5A] text-4xl mb-3 group-hover:scale-110 transition-transform">
-                  {item.icon}
+                  {<item.icon /> }
                 </div>
                 <span className="block text-base sm:text-lg  font-semibold text-gray-800 mb-1  tracking-wide  group-hover:text-[#AF0D5A] transition-colors">
                   {item.label}
