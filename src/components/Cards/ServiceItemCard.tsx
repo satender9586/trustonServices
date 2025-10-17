@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ServiceCardProps } from "@/types/landing";
 
 const ServiceItemCard: React.FC<ServiceCardProps> = ({ itemUrl, itemName, itemDesc }) => {
   return (
-    <div className=" bg-white rounded-[20px_5px_20px_5px] shadow-md overflow-hidden border border-transparent  hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className="bg-white rounded-[20px_5px_20px_5px] shadow-md overflow-hidden border border-transparent hover:shadow-2xl transition-all duration-300"
+    >
       <div className="w-full h-[130px] sm:h-[220px] md:h-[230px] relative overflow-hidden">
         <Image
           alt={`${itemName} service image`}
@@ -16,15 +21,15 @@ const ServiceItemCard: React.FC<ServiceCardProps> = ({ itemUrl, itemName, itemDe
       </div>
 
       <div className="p-3 md:p-5">
-        <h3 className="text-base sm:text-lg  font-semibold text-gray-800 mb-1  tracking-wide  group-hover:text-[#AF0D5A] transition-colors">
+        <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 tracking-wide group-hover:text-[#D81B60] transition-colors font-serif">
           {itemName}
         </h3>
-        <p className="hidden md:block  tracking-wide text-sm text-gray-600  space-y-1 leading-snug sm:leading-relaxed">
+        <p className="hidden md:block tracking-wide text-sm text-gray-600 leading-snug sm:leading-relaxed">
           {itemDesc}
         </p>
-        <div className="md:mt-3 md:h-[3px] w-0 bg-[#AF0D5A] group-hover:w-full transition-all duration-300"></div>
+        <div className="md:mt-3 md:h-[3px] w-0 bg-[#D81B60] group-hover:w-full transition-all duration-300"></div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

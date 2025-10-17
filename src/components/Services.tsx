@@ -1,55 +1,81 @@
+"use client";
 import React from "react";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 import { ServicesItems } from "../constants/ServicesFakeData";
 import ServiceItemCard from "./Cards/ServiceItemCard";
-import Link from "next/link";
 import WithTrandingLableServiceCard from "@/hoc/WithTrandingLableServiceCard";
 
-const Services = () => {
-  const ServiceItemCardWithLabel =  WithTrandingLableServiceCard(ServiceItemCard);
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80 } },
+};
+
+const Services: React.FC = () => {
+  const ServiceItemCardWithLabel = WithTrandingLableServiceCard(ServiceItemCard);
 
   return (
-    <section className="bg-gradient-to-b from-[#EBF7FD] via-white to-[#FDEBF3]  py-5 sm:py-8">
-      <div className="container mx-auto px-4 sm:px-10 pb-4">
-        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-8">
-          <h2 className="text-[24px] sm:text-4xl md:leading-12  tracking-[1.5px] md:tracking-[2px] md:font-semibold text-[#AF0D5A] mb-2 md:mb-2">
+    <section className="bg-gradient-to-b from-[#E0F7FA] via-white to-[#FFF0F5] py-10 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-10">
+        {/* Heading */}
+        <motion.div
+          className="max-w-3xl mx-auto text-center mb-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-[26px] sm:text-[36px] md:text-[44px] font-serif font-semibold tracking-[1.5px] text-[#D81B60] mb-4">
             Trusted Home Services{" "}
             <span className="hidden md:inline-block">for Delhi NCR</span>
           </h2>
 
-          <p className="block md:hidden  text-[14px] sm:text-[15px] md:text-[16px] tracking-wide text-[#747474] leading-relaxed text-center px-9 sm:px-4">
-            Reliable AC, fridge & washing machine service right at your doorstep
-            in Delhi NCR.
+          <p className="block md:hidden text-[14px] sm:text-[15px] text-[#555555] leading-relaxed text-center px-4 sm:px-10">
+            Reliable AC, fridge & washing machine service right at your doorstep in Delhi NCR.
           </p>
 
-          <p className="hidden sm:block  text-[15px] tracking-wide sm:text-[16px] text-[#747474] leading-relaxed md:px-4">
-            Welcome to{" "}
-            <span className="text-[#AF0D5A] font-semibold">
-              Trust On Services
-            </span>{" "}
-            — your go-to choice for reliable AC, washing machine, and
-            refrigerator repairs across Delhi NCR. Fast,
+          <p className="hidden sm:block text-[15px] sm:text-[16px] text-[#555555] leading-relaxed px-4 sm:px-10">
+            Welcome to <span className="text-[#D81B60] font-semibold">Trust On Services</span> — your go-to choice for reliable AC, washing machine, and refrigerator repairs across Delhi NCR. Fast, trusted, and professional services at your doorstep.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+        {/* Services Grid */}
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {ServicesItems?.map((service) => {
             const CardComponent = service.trending
               ? ServiceItemCardWithLabel
               : ServiceItemCard;
 
             return (
-              <Link href={`/services/${service.path}`} key={service.itemname}>
-                <div className="group">
-                  <CardComponent
-                    itemUrl={service.itemUrl}
-                    itemName={service.itemname}
-                    itemDesc={service.itemDesc}
-                  />
-                </div>
-              </Link>
+              <motion.div
+                key={service.itemname}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Link href={`/services/${service.path}`}>
+                  <div className="cursor-pointer">
+                    <CardComponent
+                      itemUrl={service.itemUrl}
+                      itemName={service.itemname}
+                      itemDesc={service.itemDesc}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
