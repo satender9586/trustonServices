@@ -1,4 +1,4 @@
-const WithTrandingLableServiceCard = <P extends object>(
+const WithTrandingLable = <P extends object>(
   ServiceItemCard: React.ComponentType<P>
 ) => {
   return (props: P) => {
@@ -13,4 +13,4 @@ const WithTrandingLableServiceCard = <P extends object>(
   };
 };
 
-export default WithTrandingLableServiceCard;
+export default WithTrandingLable;

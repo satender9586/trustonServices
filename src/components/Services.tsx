@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { ServicesItems } from "../constants/ServicesFakeData";
 import ServiceItemCard from "./Cards/ServiceItemCard";
-import WithTrandingLableServiceCard from "@/hoc/WithTrandingLableServiceCard";
+import WithTrandingLable from "@/hoc/WithTrandingLableServiceCard";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -17,7 +17,7 @@ const itemVariants: Variants = {
 };
 
 const Services: React.FC = () => {
-  const ServiceItemCardWithLabel = WithTrandingLableServiceCard(ServiceItemCard);
+  const ServiceItemCardWithLabel = WithTrandingLable(ServiceItemCard);
 
   return (
     <section className="bg-gradient-to-b from-[#E0F7FA] via-white to-[#FFF0F5] py-10 sm:py-16">
