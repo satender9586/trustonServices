@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { ServicesItems } from "../constants/ServicesFakeData";
 import ServiceItemCard from "./Cards/ServiceItemCard";
-import WithTrandingLable from "@/hoc/WithTrandingLableServiceCard";
+import WithTrandingLable from "@/hoc/WithTrandingLable";
 
 const containerVariants: Variants = {
   hidden: {},
