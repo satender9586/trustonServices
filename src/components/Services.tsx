@@ -39,7 +39,7 @@ const Services: React.FC = () => {
             return (
               <div
                 key={service.itemname}
-                className="cursor-pointer hover:scale-[1.05] transition-transform"
+                className="cursor-pointer hover:scale-[1] transition-transform"
               >
                 <Link href={`/services/${service.path}`}>
                   <CardComponent

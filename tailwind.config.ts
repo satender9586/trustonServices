@@ -3,7 +3,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
-        serif: ["Playfair Display", "serif"], // For headings if you want
+        serif: ["Playfair Display", "serif"], 
       },
     },
   },
